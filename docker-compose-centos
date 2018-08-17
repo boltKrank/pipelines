@@ -12,6 +12,6 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 4. 
 
-sudo /usr/local/bin/docker-compose -f artifactory-oss-postgresql.yml up -d
+sudo /usr/local/bin/docker-compose -f pipelines-docker-compose.yml up -d
 
 
