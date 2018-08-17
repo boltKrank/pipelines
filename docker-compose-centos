@@ -1,0 +1,17 @@
+1.
+
+sudo curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+
+2.
+
+sudo chmod +x /usr/local/bin/docker-compose
+
+3. (test)
+
+/usr/local/bin/docker-compose --version
+
+4. 
+
+sudo /usr/local/bin/docker-compose -f artifactory-oss-postgresql.yml up -d
+
+
