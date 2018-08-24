@@ -1,0 +1,38 @@
+version: '2.1'
+services:
+  pfa:
+    container_name: pfa
+    ports:
+      - "8080:8080"
+      - "7000:7000"
+      - "8000:8000"
+    image: puppet/pipelines-for-applications:latest
+    environment:
+      DB_ENDPOINT: mysql://db:3306/pfa
+      USER: pfa
+      MYSQL_PWD: puppetlabs
+    depends_on:
+      - db
+      - artifactory
+  db:
+    image: mysql:5.7
+    container_name: pfa_db
+    restart: always
+    environment:
+       MYSQL_ROOT_PASSWORD: puppetlabs
+       MYSQL_DATABASE: pfa
+       MYSQL_USER: pfa
+       MYSQL_PASSWORD: puppetlabs
+  artifactory:
+    image: docker.bintray.io/jfrog/artifactory-oss:5.8.3
+    container_name: pfa_artifactory
+    ports:
+      - 8081:8081
+    volumes:
+      - data_s3:/var/opt/jfrog/artifactory
+
+volumes:
+  db_data:
+    name: pfa_db_data
+  data_s3:
+    name: pfa_data_s3
