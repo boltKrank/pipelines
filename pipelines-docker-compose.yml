@@ -30,6 +30,14 @@ services:
       - 8081:8081
     volumes:
       - data_s3:/var/opt/jfrog/artifactory
+  gitlab:
+    image: gitlab/gitlab-ce
+    container_name: gitlab
+    ports:
+      - 90:80
+      - 8090:8080
+      - 453:443
+      - 32:22
 
 volumes:
   db_data:
