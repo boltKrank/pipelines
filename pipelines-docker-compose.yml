@@ -23,6 +23,7 @@ services:
        MYSQL_DATABASE: pfa
        MYSQL_USER: pfa
        MYSQL_PASSWORD: puppetlabs
+  # Log into Artifactory and add a Generic DB before logging into PFA
   artifactory:
     image: docker.bintray.io/jfrog/artifactory-oss:5.8.3
     container_name: pfa_artifactory
