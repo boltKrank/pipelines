@@ -9,7 +9,8 @@ echo "APIKEY = $response"
 
 echo "Starting MYSQL"
 docker run --rm --name mysql -v /cd4pe/mysql:/var/lib/mysql --env-file mysql.env -p 3306:3306 -d mysql/mysql-server:5.7
+#docker run --rm --name cdpe -e DB_ENDPOINT=mysql://localhost:3306/cd4pe -e DB_USER=cd4pe -e DB_PASS=puppetlabs  -e DB_PREFIX=cd4pe -e DUMP_URI=dump://localhost:7000 -e PFI_SECRET_KEY=H+s0RPLYvWaLQPtjT6/kjw== -p 8080:8080 -p 8000:8000 -p 7000:7000 puppet/continuous-delivery-for-puppet-enterprise:latest
 echo "Waiting for 5"
 sleep 5
 echo "Starting CD4PE"
-docker run --rm --name pfa --env-file cd4pe.env -p 8080:8080 -p 8000:8000 -p 7000:7000 -d puppet/continuous-delivery-for-puppet-enterprise:latest
+docker run --rm --name cd4pe --env-file cd4pe.env -p 8080:8080 -p 8000:8000 -p 7000:7000 -d puppet/continuous-delivery-for-puppet-enterprise:latest
