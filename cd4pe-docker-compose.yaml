@@ -20,8 +20,8 @@ services:
     restart: always
     environment:
        MYSQL_ROOT_PASSWORD: puppetlabs
-       MYSQL_DATABASE: pfa
-       MYSQL_USER: pfa
+       MYSQL_DATABASE: cd4pe
+       MYSQL_USER: cd4pe
        MYSQL_PASSWORD: puppetlabs
   artifactory:
     image: docker.bintray.io/jfrog/artifactory-oss:5.8.3
