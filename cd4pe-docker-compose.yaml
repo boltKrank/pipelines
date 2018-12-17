@@ -1,7 +1,7 @@
 version: '2.1'
 services:
   pfa:
-    container_name: pfa
+    container_name: cd4pe
     ports:
       - "8080:8080"
       - "7000:7000"
